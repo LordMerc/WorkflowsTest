@@ -14,13 +14,17 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            var msg = "Hello! Issue has been noted, waiting for advisory.."
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ["triage"]
             })
+      - name: Add Comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            var msg = "Hello! Issue has been noted, waiting for advisory.."
             github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
