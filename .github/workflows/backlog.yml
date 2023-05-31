@@ -1,14 +1,12 @@
 name: Unresolveable Comment v1
 on:
   issues:
-    types: [edited]
+    types: [opened, edited, milestoned]
 jobs:
-  unresolve-comment:
-    permissions:
-      issues: write
+  print_context:
     runs-on: ubuntu-latest
     steps:
-      - name: View context attributes
-        uses: actions/github-script@v6
-        with:
-          script: console.log(context)
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
