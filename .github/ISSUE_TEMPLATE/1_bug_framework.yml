@@ -23,6 +23,23 @@ body:
   #     options:
   #       - "Next.js"
   #       - "Other"
+  
+  - type: dropdown
+  id: severity
+  attributes:
+    label: Severity impact
+    description: Please choose the severity of the impact of this issue.
+    multiple: false
+    options:
+      - 'None'
+      - 'Low'
+      - 'Medium'
+      - 'High'
+      - 'Urgent'
+      - 'Other'
+  validations:
+    required: true
+  
   - type: textarea
     attributes:
       label: Environment
