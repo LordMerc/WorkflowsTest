@@ -11,7 +11,7 @@ jobs:
         run: |
           echo $EVENT_CONTEXT
   close:
-    if: github.event.issue.state_reason == "not_planned"
+    if: github.event.issue.state_reason == 'not_planned'
     runs-on: ubuntu-latest
     steps:
       - name: Add Comment
