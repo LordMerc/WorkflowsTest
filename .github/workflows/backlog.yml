@@ -1,13 +1,8 @@
----
 name: Unresolveable Comment
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   project_card:
     types: [moved]
-literal_block: |
-    This issue has been moved to be unresolved at this time.
-    What this means is we just cant do it right now lol, sorry
-    #poggers
 jobs:
   unresolve-comment:
     permissions: read-all|write-all
