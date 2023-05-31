@@ -1,12 +1,28 @@
-name: Unresolveable Comment v1
+name: Unresolveable Issue v1
 on:
   issues:
-    types: [opened, edited, milestoned]
+    types: [closed]
 jobs:
-  print_context:
+  print:
+    close:
+      runs-on: ubuntu-latest
+      steps:
+        - env:
+            EVENT_CONTEXT: ${{ toJSON(github.event) }}
+          run: |
+            echo $EVENT_CONTEXT
+  close:
+    if: github.repository == 'octo-org/octo-repo-prod'
     runs-on: ubuntu-latest
     steps:
-      - env:
-          EVENT_CONTEXT: ${{ toJSON(github.event) }}
-        run: |
-          echo $EVENT_CONTEXT
+      - name: Add Comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            var msg = "Issue is closed without reason."
+            github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: msg
+              })
