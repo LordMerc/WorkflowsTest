@@ -1,4 +1,4 @@
-name: Unresolveable Issue v1
+name: Project Test
 on: [project, project_card, project_column]
 jobs:
   print:
