@@ -1,76 +1,22 @@
-name: Your favorite animals
-description: Pick animals you love
-labels: ["animals 🫶"]
+name: Bug Report
+description: A report of an error in a recent systemd version
+##labels: ["triage"]
 
 body:
   - type: markdown
     attributes:
-      value: Thanks for taking the time to fill out this issue!
+      value: Thanks for taking the time to fill out this bug report!
 
   - type: dropdown
-    id: animals
+    id: component
     attributes:
-      label: Animals
-      description: Please pick all animals you like.
+      label: Component
+      description: Please chose components related to this issue.
       multiple: true
+      # When updating list of components please also update labeling policy
+      # policy: `.github/advanced-issue-labeler.yml`
       options:
-        - 'I do not like animals'
-        - '🦍 Gorilla'
-        - '🐶 Dog'
-        - '🐺 Wolf'
-        - '🦊 Fox'
-        - '🐴 Horse'
-        - '🐓 Rooster'
-        - '🐦 Bird'
-        - '🐧 Penguin'
-        - '🐸 Frog'
-        - '🐬 Dolphin'
-        - '🐡 Blowfish'
-        - '🐟 Fish'
-        - '🦈 Shark'
-        - '🐛 Bug'
-        - '🕷️ Spider'
-        - '🐊 Crocodile'
-        - 'other'
-    validations:
-      required: false
-
-  - type: dropdown
-    id: severity
-    attributes:
-      label: Severity impact of your decision
-      description: Please choose the severity.
-      multiple: false
-      options:
-        - 'I do not know'
-        - 'Low'
-        - 'Medium'
-        - 'High'
-        - 'Urgent'
-        - 'Other'
-    validations:
-      required: false
-
-  - type: dropdown
-    id: priority
-    attributes:
-      label: Priority
-      description: Please choose the priority.
-      multiple: false
-      options:
-        - 'I do not know'
-        - 'Low'
-        - 'Medium'
-        - 'High'
-        - 'Urgent'
-        - 'Other'
-    validations:
-      required: false
-
-  - type: textarea
-    id: other
-    attributes:
-      label: Other info
-      description: Write your ideas ...
+        - 'test-option'
+        - 'bug'
     validations:
       required: false

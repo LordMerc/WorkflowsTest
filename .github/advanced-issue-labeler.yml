@@ -1,50 +1,13 @@
-# syntax - https://github.com/redhat-plumbers-in-action/advanced-issue-labeler#policy
 ---
+# syntax - https://github.com/redhat-plumbers-in-action/advanced-issue-labeler#policy
 
 policy:
-  - template: ['bug.yml']
+  - template: [bug_report.yml]
     section:
-      - id: [animals]
-        block-list: ['I do not like animals', 'Other']
+      - id: [component]
+        #block-list: [other]
         label:
-          - name: 'kind: amphibians'
-            keys: ['🐸 Frog']
-
-          - name: 'kind: birds'
-            keys: ['🐓 Rooster', '🐦 Bird', '🐧 Penguin']
-
-          - name: 'kind: fish'
-            keys: ['🐡 Blowfish', '🐟 Fish', '🦈 Shark']
-
-          - name: 'kind: mammals'
-            keys: ['🦍 Gorilla', '🐶 Dog', '🐬 Dolphin', '🐺 Wolf', '🦊 Fox', '🐴 Horse']
-
-          - name: 'kind: reptiles'
-            keys: ['🐊 Crocodile']
-
-          - name: 'invertebrates'
-            keys: ['🐛 Bug', '🕷️ Spider']
-
-      - id: ['severity', 'priority']
-        block-list: []
-        label:
-          - name: 'Low'
-            keys: ['Low', 'I do not know']
-
-          - name: 'Medium'
-            keys: ['Medium']
-
-          - name: 'High'
-            keys: ['High']
-
-          - name: 'Urgent'
-            keys: ['Urgent']
-  - template: ['feature.yml']
-       section:
-        - id: [without-policy]
-          label:
-            - name: 'bug 🐛'
-              keys: ['Bug Report']
-
-            - name: 'RFE 🎁'
-              keys: ['Feature Request']
+          - name: bug
+            keys: ['bug']
+          - name: test
+            keys: ['test-option']
