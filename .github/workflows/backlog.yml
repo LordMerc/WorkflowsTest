@@ -1,4 +1,4 @@
-name: Unresolveable Comment
+name: Unresolveable Comment v1
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   project_card:
@@ -8,14 +8,7 @@ jobs:
     permissions: read-all|write-all
     runs-on: ubuntu-latest
     steps:
-      - name: Add Comment to issue
+      - name: View context attributes
         uses: actions/github-script@v6
         with:
-          script: |
-            github.rest.issues.createComment({
-                issue_number: context.project_card.node_id,
-                owner: context.repository.owner,
-                repo: context.repository.repo,
-                body: literal_block
-              })  
-    
+          script: console.log(context)
