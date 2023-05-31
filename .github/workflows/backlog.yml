@@ -12,6 +12,7 @@ jobs:
           echo $EVENT_CONTEXT
   close:
     if: github.event.issue.state_reason == 'not_planned'
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Add Comment
