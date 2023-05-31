@@ -1,5 +1,5 @@
 name: Project Test
-on: [project, project_card, project_column]
+on: [projects_v2, projects_v2_item]
 jobs:
   print:
     runs-on: ubuntu-latest
