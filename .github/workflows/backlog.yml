@@ -10,7 +10,6 @@ literal_block: |
     #poggers
 jobs:
   unresolve-comment:
-    if: ${{ github.event.project_card.column_url == 'Unresolved' }}
     permissions: read-all|write-all
     runs-on: ubuntu-latest
     steps:
