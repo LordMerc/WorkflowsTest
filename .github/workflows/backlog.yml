@@ -10,8 +10,8 @@ jobs:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
-  close:
-    if: github.event.issue.state_reason == 'not_planned'
+  close_feature:
+    if: github.event.issue.state_reason == 'not_planned' && contains(github.event.issue.labels.*.name, 'feature')
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +20,17 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           message: |
             ### ⚠️COMMENT VISIBILITY WARNING⚠️ 
-            Comments on closed issues are hard for our team to see. 
-            If you need more assistance, please either tag a team member or open a new issue that references this one. 
-            If you wish to keep having a conversation with other community members under this issue feel free to do so.
+            This feature has been closed temporaily or permanently.
+            The reason is due to time constraints, issues with making, or other cases.
+            This feature could be re-opened in the future.
+  close_bug:
+    if: github.event.issue.state_reason == 'not_planned' && contains(github.event.issue.labels.*.name, 'bug')
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: aws-actions/closed-issue-message@v1
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          message: |
+            ### ⚠️COMMENT VISIBILITY WARNING⚠️ 
+            This bug cannot be fixed at this time.
