@@ -1,0 +1,27 @@
+---
+name: Unresolveable Comment
+run-name: ${{ github.actor }} is learning GitHub Actions
+on:
+  project_card:
+    types: [moved]
+literal_block: |
+    This issue has been moved to be unresolved at this time.
+    What this means is we just cant do it right now lol, sorry
+    #poggers
+jobs:
+  unresolve-comment:
+    if: ${{ github.event.project_card.column_url == 'Unresolved' }}
+    permissions: read-all|write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Comment to issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+                issue_number: context.project_card.node_id,
+                owner: context.repository.owner,
+                repo: context.repository.repo,
+                body: literal_block
+              })  
+    
