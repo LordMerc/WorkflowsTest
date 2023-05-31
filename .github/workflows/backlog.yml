@@ -1,7 +1,7 @@
 name: Unresolveable Comment v1
 on:
-  project_card:
-    types: [moved, created]
+  project_column:
+    types: [created, deleted]
 jobs:
   unresolve-comment:
     permissions:
