@@ -3,7 +3,7 @@ on:
   issues:
     types: [closed]
 jobs:
-  print:
+  -print:
     close:
       runs-on: ubuntu-latest
       steps:
@@ -11,7 +11,7 @@ jobs:
             EVENT_CONTEXT: ${{ toJSON(github.event) }}
           run: |
             echo $EVENT_CONTEXT
-  close:
+  -close:
     if: github.repository == 'octo-org/octo-repo-prod'
     runs-on: ubuntu-latest
     steps:
