@@ -1,11 +1,11 @@
 name: Unresolveable Comment v1
-run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   project_card:
-    types: [moved]
+    types: [moved, created]
 jobs:
   unresolve-comment:
-    permissions: read-all|write-all
+    permissions:
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: View context attributes
