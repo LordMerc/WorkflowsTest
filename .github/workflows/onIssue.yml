@@ -11,6 +11,7 @@ jobs:
       issues: write
     steps:
       - name: Add Label
+        if: contains(github.event.issue.labels.*.name, 'triage') == false
         uses: actions/github-script@v6
         with:
           script: |

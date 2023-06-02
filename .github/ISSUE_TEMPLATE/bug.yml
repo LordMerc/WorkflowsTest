@@ -12,11 +12,12 @@ body:
     attributes:
       label: Component
       description: Please chose components related to this issue.
-      multiple: true
+      multiple: false
       # When updating list of components please also update labeling policy
       # policy: `.github/advanced-issue-labeler.yml`
       options:
         - 'test-option'
         - 'bug'
+        - 'feature-request'
     validations:
       required: false

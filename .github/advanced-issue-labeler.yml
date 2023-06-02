@@ -2,7 +2,7 @@
 # syntax - https://github.com/redhat-plumbers-in-action/advanced-issue-labeler#policy
 
 policy:
-  - template: [bug_report.yml]
+  - template: [bug.yml]
     section:
       - id: [component]
         #block-list: [other]
@@ -11,3 +11,5 @@ policy:
             keys: ['bug']
           - name: test
             keys: ['test-option']
+          - name: feature
+            keys: ['feature-request']
